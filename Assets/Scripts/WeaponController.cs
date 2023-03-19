@@ -29,8 +29,12 @@ public class WeaponController : MonoBehaviour
         {
             Shoot();
         }
+        if (Input.GetKey(KeyCode.R))
+        {
+            Reload();
+        }
     }
-
+    
     void Shoot()
     {
         if (canShoot)
@@ -44,7 +48,7 @@ public class WeaponController : MonoBehaviour
 
     void Reload()
     {
-
+        animator.SetTrigger("Reload");
     }
 
     IEnumerator ShootCoroutine()
