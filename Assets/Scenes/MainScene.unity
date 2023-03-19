@@ -772,7 +772,7 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011073831}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
@@ -958,6 +958,43 @@ MonoBehaviour:
   m_ParticleSystem: {fileID: 1770479408}
   m_AudioSource: {fileID: 1314173868}
   m_Light: {fileID: 1011073832}
+--- !u!111 &1314173870
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433194079}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Animation: {fileID: -2090514940347631615, guid: 32ea5fe2e088d5141aee71095a34bca2, type: 3}
+  m_Animations:
+  - {fileID: -2090514940347631615, guid: 32ea5fe2e088d5141aee71095a34bca2, type: 3}
+  - {fileID: -7908351213423435331, guid: 32ea5fe2e088d5141aee71095a34bca2, type: 3}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!95 &1314173871
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433194079}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: badb73bdcb2b6c64c9a8fe091f56c48e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1001 &1319529760
 PrefabInstance:
   m_ObjectHideFlags: 0

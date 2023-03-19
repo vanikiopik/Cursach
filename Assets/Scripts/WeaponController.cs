@@ -6,8 +6,9 @@ using UnityEngine;
 public class WeaponController : MonoBehaviour
 {
 
-    private Animator animator;
+    //private Animation animation;
 
+    private Animator animator;
 
     bool canShoot = true;
     float delayBetweenShots = .2f;
@@ -18,6 +19,7 @@ public class WeaponController : MonoBehaviour
 
     private void Start()
     {
+       // animation = gameObject.GetComponent<Animation>();
         animator = gameObject.GetComponent<Animator>();
     }
 
@@ -35,8 +37,14 @@ public class WeaponController : MonoBehaviour
         {
             m_ParticleSystem.Play();
             m_AudioSource.Play();
+            animator.SetTrigger("Shot");
             StartCoroutine(ShootCoroutine());
         }
+    }
+
+    void Reload()
+    {
+
     }
 
     IEnumerator ShootCoroutine()
