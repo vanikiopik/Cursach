@@ -3,41 +3,40 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    // —корость движени€ камеры
-    public float moveSpeed;
-    private float _gravity = 9.8f;
-    // „увствительность мыши
+
+
     public float sensitivity = 100f;
 
-    // ћинимальный и максимальный угол поворота камеры по вертикали
+    // Min&Max camera vertical angle
     public float minVerticalAngle = -90f;
     public float maxVerticalAngle = 90f;
 
-    // “екущий угол поворота камеры
-    private Vector2 currentRotation = Vector2.right;
-    private CharacterController _characterController;
-
-    private void Start()
-    {
-        _characterController = GetComponent<CharacterController>();
-    }
+    // Current camera angle
+    private Vector2 currentRotation = Vector2.one;
 
     private void Update()
     {
-        // ƒвижение камеры по горизонтали и вертикали
+        /*// ƒвижение камеры по горизонтали и вертикали
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
+
+
         Vector3 moveDirection = new Vector3(horizontal, 0f, vertical);
+        
 
         moveDirection = Vector3.ClampMagnitude(moveDirection, moveSpeed);
 
-        moveDirection.y -= _gravity * Time.deltaTime;
+        if(_characterController.isGrounded)
+            moveDirection.y -= _gravity  * Time.deltaTime;
+        else
+        {
+            moveDirection.y -= _gravity * Time.deltaTime * 50f;
+        }
 
-        moveDirection = moveDirection * Time.deltaTime;
         
-        moveDirection = transform.TransformDirection(moveDirection);
+        moveDirection = transform.TransformDirection(moveDirection) * moveSpeed * Time.deltaTime;
 
-        _characterController.Move(moveDirection);
+        _characterController.Move(moveDirection);*/
 
 
         // ѕоворот камеры по горизонтали и вертикали
