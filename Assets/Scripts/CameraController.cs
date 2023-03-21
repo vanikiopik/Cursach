@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-
-
     public float sensitivity = 100f;
 
     // Min&Max camera vertical angle
@@ -16,30 +14,6 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        /*// ƒвижение камеры по горизонтали и вертикали
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
-
-
-        Vector3 moveDirection = new Vector3(horizontal, 0f, vertical);
-        
-
-        moveDirection = Vector3.ClampMagnitude(moveDirection, moveSpeed);
-
-        if(_characterController.isGrounded)
-            moveDirection.y -= _gravity  * Time.deltaTime;
-        else
-        {
-            moveDirection.y -= _gravity * Time.deltaTime * 50f;
-        }
-
-        
-        moveDirection = transform.TransformDirection(moveDirection) * moveSpeed * Time.deltaTime;
-
-        _characterController.Move(moveDirection);*/
-
-
-        // ѕоворот камеры по горизонтали и вертикали
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
         currentRotation.x += mouseX * sensitivity * Time.deltaTime;
