@@ -10,11 +10,13 @@ public class WeaponController : MonoBehaviour
 
     private Animator animator;
 
-    bool canShoot = true;
-    float delayBetweenShots = .2f;
+    private bool canShoot = true;
+    private float delayBetweenShots = .2f;
+    private float reloadCooldown = 3.1f;
     
     public ParticleSystem m_ParticleSystem;
     public AudioSource m_AudioSource;
+    public AudioSource m_AudioSourceReload;
     public Light m_Light;
 
     private void Start()
@@ -48,7 +50,9 @@ public class WeaponController : MonoBehaviour
 
     void Reload()
     {
+        m_AudioSourceReload.Play();
         animator.SetTrigger("Reload");
+        StartCoroutine(ReloadCoroutine());
     }
 
     IEnumerator ShootCoroutine()
@@ -58,5 +62,12 @@ public class WeaponController : MonoBehaviour
         yield return new WaitForSeconds(delayBetweenShots);
         m_Light.enabled = false;
         canShoot = true; 
+    }
+
+    IEnumerator ReloadCoroutine()
+    {
+        canShoot = false;
+        yield return new WaitForSeconds(reloadCooldown);
+        canShoot = true;
     }
 }
