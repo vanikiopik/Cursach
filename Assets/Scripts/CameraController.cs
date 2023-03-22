@@ -10,7 +10,7 @@ public class CameraController : MonoBehaviour
     public float maxVerticalAngle = 90f;
 
     // Current camera angle
-    private Vector2 currentRotation = Vector2.one;
+    private Vector2 currentRotation = new Vector2(0,0);
 
     private void Update()
     {
