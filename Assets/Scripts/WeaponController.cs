@@ -5,8 +5,11 @@ using UnityEngine;
 
 public class WeaponController : MonoBehaviour
 {
+    public Camera playerCamera; // —сылка на камеру игрока
+    public GameObject bulletPrefab; // —сылка на префаб пули
+    public Transform bulletSpawn; // —сылка на точку, где пул€ будет по€вл€тьс€
+    public float bulletSpeed = 100f; // —корость пули
 
-    //private Animation animation;
 
     private Animator animator;
 
@@ -21,8 +24,8 @@ public class WeaponController : MonoBehaviour
 
     private void Start()
     {
-       // animation = gameObject.GetComponent<Animation>();
         animator = gameObject.GetComponent<Animator>();
+
     }
 
     private void Update()
@@ -43,6 +46,7 @@ public class WeaponController : MonoBehaviour
         {
             m_ParticleSystem.Play();
             m_AudioSource.Play();
+            BulletShoot();
             animator.SetTrigger("Shot");
             StartCoroutine(ShootCoroutine());
         }
@@ -53,6 +57,17 @@ public class WeaponController : MonoBehaviour
         m_AudioSourceReload.Play();
         animator.SetTrigger("Reload");
         StartCoroutine(ReloadCoroutine());
+    }
+
+    void BulletShoot()
+    {
+
+        // 1st person view
+        Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+        // Create the bullet
+        GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+        // Make bullet move
+        bullet.GetComponent<Rigidbody>().velocity = ray.direction * bulletSpeed;
     }
 
     IEnumerator ShootCoroutine()
