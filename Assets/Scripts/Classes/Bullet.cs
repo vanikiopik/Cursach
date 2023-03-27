@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    [SerializeField] private int damage;
+    [SerializeField] private float _damage = 20;
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Kill");
+        
         if (collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("Kill");
-            Destroy(collision.gameObject);
+            Zombie enemy = collision.collider.GetComponent<Zombie>();
+            enemy.TakeDamage(_damage);
             Destroy(gameObject);
         }
     }

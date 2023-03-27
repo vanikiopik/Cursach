@@ -13,6 +13,7 @@ public class WeaponController : MonoBehaviour
 
     private Animator animator;
 
+    private bool canReload = true;
     private bool canShoot = true;
     private float delayBetweenShots = .2f;
     private float reloadCooldown = 3.1f;
@@ -53,9 +54,12 @@ public class WeaponController : MonoBehaviour
 
     void Reload()
     {
-        m_AudioSourceReload.Play();
-        animator.SetTrigger("Reload");
-        StartCoroutine(ReloadCoroutine());
+        if (canReload)
+        {
+            m_AudioSourceReload.Play();
+            animator.SetTrigger("Reload");
+            StartCoroutine(ReloadCoroutine());
+        }
     }
 
     void BulletShoot()
@@ -68,16 +72,20 @@ public class WeaponController : MonoBehaviour
     IEnumerator ShootCoroutine()
     {
         canShoot = false;
+        canShoot = false;
         m_Light.enabled = true;
         yield return new WaitForSeconds(delayBetweenShots);
         m_Light.enabled = false;
-        canShoot = true; 
+        canShoot = true;
+        canReload = true;
     }
 
     IEnumerator ReloadCoroutine()
     {
         canShoot = false;
+        canReload = false;
         yield return new WaitForSeconds(reloadCooldown);
         canShoot = true;
+        canReload = true;
     }
 }

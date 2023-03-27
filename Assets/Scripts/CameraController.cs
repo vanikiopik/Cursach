@@ -12,6 +12,12 @@ public class CameraController : MonoBehaviour
     // Current camera angle
     private Vector2 currentRotation = new Vector2(0,0);
 
+    private void Start()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+    }
+
     private void Update()
     {
         float mouseX = Input.GetAxis("Mouse X");

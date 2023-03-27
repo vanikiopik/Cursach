@@ -4,5 +4,10 @@ using UnityEngine;
 
 public class Person : MonoBehaviour
 {
-    [SerializeField]private int health = 100;
+    [SerializeField]protected float _health = 100;
+
+    public void Die()
+    {
+        Destroy(gameObject);
+    }
 }

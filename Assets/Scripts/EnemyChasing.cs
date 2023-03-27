@@ -4,7 +4,7 @@ using UnityEngine.AI;
 public class EnemyChasing : MonoBehaviour
 {
 
-    public Transform player;
+    public Transform target;
     [SerializeField] private float _visibleDistance = 5f;
     private NavMeshAgent navMeshAgent;
 
@@ -15,10 +15,13 @@ public class EnemyChasing : MonoBehaviour
 
     private void Update()
     {
-        if(Vector3.Distance(transform.position, player.transform.position) < _visibleDistance)
+        if(Vector3.Distance(transform.position, target.transform.position) < _visibleDistance)
         {
-        // Устанавливаем пункт назначения на текущее положение игрока
-        navMeshAgent.SetDestination(player.position);
+            navMeshAgent.SetDestination(target.position);
+        }
+        else
+        {
+
         }
     }
 }
