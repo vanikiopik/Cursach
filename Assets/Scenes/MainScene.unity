@@ -7247,7 +7247,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: cf077849f73f7274fb6ff9e44111356b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -7263,11 +7263,11 @@ CapsuleCollider:
   m_GameObject: {fileID: 919132148605177627}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.7076268
-  m_Height: 3.8659592
+  m_Height: 3.9296055
   m_Direction: 1
-  m_Center: {x: 0.1351394, y: 2.035287, z: 0.24541168}
+  m_Center: {x: 0.1351394, y: 2.0671234, z: 0.24541168}
 --- !u!195 &919132148605177633
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -11091,7 +11091,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4028323154305337138}
-  m_LocalRotation: {x: 0.10248363, y: -0.08102274, z: 0.048048887, w: 0.9902645}
+  m_LocalRotation: {x: 0.10248364, y: -0.08102274, z: 0.04804889, w: 0.9902645}
   m_LocalPosition: {x: -0, y: 0.40009925, z: -0.0000000374595}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
