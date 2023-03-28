@@ -10,6 +10,8 @@ public class Zombie : Person
     [SerializeField] private float _attackDamage = 20;
     public Slider healthBar;
     private EnemyAnimation _enemyAnimation;
+    private bool _canAttack = true;
+    [SerializeField] private float _attackCooldown = 2.0f;
 
     private void Start()
     {
@@ -28,8 +30,8 @@ public class Zombie : Person
 
     public void Attack(Collision collision)
     {
-        //_enemyAnimation.SetAttackAnimation();
         collision.gameObject.GetComponent<Player>().TakeDamage(_attackDamage);
+        StartCoroutine(attackCooldown());
     }
 
     void UpdateHealthBar(float currentHealth)
@@ -39,10 +41,17 @@ public class Zombie : Person
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player") & _canAttack)
         {
             Attack(collision);
         }
+    }
+
+    private IEnumerator attackCooldown()
+    {
+        _canAttack = false;
+        yield return new WaitForSeconds(_attackCooldown);
+        _canAttack = true;
     }
 }
 

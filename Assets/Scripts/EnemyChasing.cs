@@ -10,6 +10,7 @@ public class EnemyChasing : MonoBehaviour
 
     private NavMeshAgent navMeshAgent;
     private EnemyAnimation _enemyAnimation;
+
     //Distance between player and enemy
     private float _distance;
 
@@ -28,7 +29,7 @@ public class EnemyChasing : MonoBehaviour
             Debug.Log("Attack");
             _enemyAnimation.SetAttackAnimation();
         }
-        else if(_distance < _visibleDistance && _distance > _attackDistance)
+        else if(_attackDistance < _distance && _distance < _visibleDistance)
         {
             Debug.Log("Move");
             _enemyAnimation.SetWalkAnimation();
