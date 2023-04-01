@@ -3,7 +3,7 @@ using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerGUI : MonoBehaviour
+public class PlayerHelathGUI : MonoBehaviour
 {
     private Slider _hpBar;
 
@@ -12,16 +12,12 @@ public class PlayerGUI : MonoBehaviour
     private void Awake()
     {
         _health.HealthChanged += OnHpChanged;
+        _hpBar = GetComponent<Slider>();
     }
 
     private void OnDestroy()
     {
         _health.HealthChanged -= OnHpChanged;
-    }
-
-    void Start()
-    {
-        _hpBar = GetComponent<Slider>();
     }
 
     private void OnHpChanged(float healthValue)
