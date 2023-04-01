@@ -8,7 +8,6 @@ public class EnemyAnimation : MonoBehaviour
     private bool _canAnimate = true;
 
 
-
     void Start()
     {
         animator = GetComponent<Animator>();

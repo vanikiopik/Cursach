@@ -54,5 +54,3 @@ public class Zombie : Person
         _canAttack = true;
     }
 }
-
- 
