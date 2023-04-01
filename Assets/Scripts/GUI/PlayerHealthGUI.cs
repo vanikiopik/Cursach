@@ -3,7 +3,7 @@ using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerHelathGUI : MonoBehaviour
+public class PlayerHealthGUI : MonoBehaviour
 {
     private Slider _hpBar;
 
