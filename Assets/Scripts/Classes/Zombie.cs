@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -13,6 +14,9 @@ public class Zombie : Person
     private bool _canAttack = true;
     [SerializeField] private float _attackCooldown = 2.0f;
 
+    public event Action<float> HealthChanged;
+
+
     private void Start()
     {
         _enemyAnimation = GetComponent<EnemyAnimation>();
@@ -21,11 +25,12 @@ public class Zombie : Person
     public void TakeDamage(float damage)
     {
         _health -= damage;
-        UpdateHealthBar(_health);   
-        if(_health <= 0.1)
+        UpdateHealthBar(_health);
+        if (_health <= 0.1)
         {
             Die();
         }
+        else HealthChanged?.Invoke(_health);
     }
 
     public void Attack(Collision collision)

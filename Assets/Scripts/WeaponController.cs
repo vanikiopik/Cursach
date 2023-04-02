@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class WeaponController : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class WeaponController : MonoBehaviour
     public GameObject bulletPrefab; 
     public Transform bulletSpawn; 
     private Animator animator;
+
 
     public ParticleSystem m_ParticleSystem;
     public AudioSource m_AudioSource;
@@ -19,12 +21,18 @@ public class WeaponController : MonoBehaviour
     private float delayBetweenShots = .2f;
     private float reloadCooldown = 3.1f;
     public float bulletSpeed = 100f;
+    private int _damage = 20;
 
     [SerializeField] private int _availableBullets = 30;
     [SerializeField] private int _bulletsInBag = 90;
     private int _maxBullets;
 
     public event Action<int, int> BulletChange;
+
+    private void Awake()
+    {
+        
+    }
 
     private void Start()
     {
@@ -76,7 +84,15 @@ public class WeaponController : MonoBehaviour
 
     void BulletShoot()
     {
+        RaycastHit hit;
         Ray ray = playerCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            Zombie zombie = hit.collider.GetComponent<Zombie>();
+            if (zombie != null) zombie.TakeDamage(_damage);
+        }
+
         GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
         bullet.GetComponent<Rigidbody>().velocity = ray.direction * bulletSpeed;
     }
