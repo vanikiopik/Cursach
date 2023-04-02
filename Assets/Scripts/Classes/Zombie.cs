@@ -35,8 +35,8 @@ public class Zombie : Person
 
     public void Attack(Collision collision)
     {
-        collision.gameObject.GetComponent<Player>().TakeDamage(_attackDamage);
-        StartCoroutine(attackCooldown());
+        /*collision.gameObject.GetComponent<Player>().TakeDamage(_attackDamage);
+        StartCoroutine(attackCooldown());*/
     }
 
     void UpdateHealthBar(float currentHealth)
@@ -44,13 +44,13 @@ public class Zombie : Person
         healthBar.value = currentHealth;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player") & _canAttack)
         {
             Attack(collision);
         }
-    }
+    }*/
 
     private IEnumerator attackCooldown()
     {
