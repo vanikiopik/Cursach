@@ -6,7 +6,7 @@ public class EnemyAnimation : MonoBehaviour
     public Animator animator;
     public float animationTime = 2.0f;
     private bool _canAnimate = true;
-
+    
 
     void Start()
     {
