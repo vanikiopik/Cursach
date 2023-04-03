@@ -26,18 +26,15 @@ public class EnemyChasing : MonoBehaviour
 
         if (_distance < _attackDistance)
         {
-            Debug.Log("Attack");
             _enemyAnimation.SetAttackAnimation();
         }
         else if(_attackDistance < _distance && _distance < _visibleDistance)
         {
-            Debug.Log("Move");
             _enemyAnimation.SetWalkAnimation();
             navMeshAgent.SetDestination(target.position);
         }
         else
         {
-            Debug.Log("Reset");
             navMeshAgent.ResetPath();
         }
     }

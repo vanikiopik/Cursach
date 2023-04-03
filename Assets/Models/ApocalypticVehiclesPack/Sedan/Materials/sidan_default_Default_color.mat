@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: sidan_default_Default_color
-  m_Shader: {fileID: 4800000, guid: 3ff978f6de0b6f747b35dad5293e8566, type: 3}
+  m_Shader: {fileID: 14000, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -20,8 +20,16 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Cubemap:
         m_Texture: {fileID: 8900000, guid: 73240d2c60cbff94488f11fe2fdfb43a, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailTex:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Diffuse:
@@ -63,10 +71,13 @@ Material:
     m_Ints: []
     m_Floats:
     - _ADD_gloss: 0.9153439
+    - _Cull: 2
+    - _Cutoff: 0.333
     - _GlossHigh: 0.7169596
     - _GlossLow: 0.1666343
     - _HighSpecMultiplayer: 1.91453
     - _Shininess: 0.7
+    - _WindQuality: 0
     - _range: 0.1641791
     m_Colors:
     - _ADD_specular: {r: 0, g: 0, b: 0, a: 1}
@@ -75,6 +86,7 @@ Material:
     - _DiffColor: {r: 1, g: 1, b: 1, a: 1}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}
     - _HighSpecColor: {r: 1, g: 1, b: 1, a: 1}
+    - _HueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
     - _IllumColor: {r: 0, g: 0, b: 0, a: 1}
     - _LowSpecColor: {r: 0.07352942, g: 0.07352942, b: 0.07352942, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}

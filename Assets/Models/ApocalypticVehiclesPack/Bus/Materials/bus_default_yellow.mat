@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: bus_default_yellow
-  m_Shader: {fileID: 4800000, guid: 3ff978f6de0b6f747b35dad5293e8566, type: 3}
+  m_Shader: {fileID: 14000, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -20,12 +20,20 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Cube:
         m_Texture: {fileID: 8900000, guid: 2b9f65f9313cb424c9fe4ae3882fc5e1, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Cubemap:
         m_Texture: {fileID: 8900000, guid: 73240d2c60cbff94488f11fe2fdfb43a, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailTex:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Diffuse:
@@ -83,11 +91,14 @@ Material:
     m_Ints: []
     m_Floats:
     - _ADD_gloss: 0.47761193
+    - _Cull: 2
+    - _Cutoff: 0.333
     - _GlossHigh: 0.7169596
     - _GlossLow: 0.1666343
     - _HighSpecMultiplayer: 1.91453
     - _Shininess: 0.7
     - _Spec_Pic_range: 1
+    - _WindQuality: 0
     - _gloss: 0.5
     - _range: 0.19402985
     - _rangeCutout: 0
@@ -100,6 +111,7 @@ Material:
     - _DiffColor: {r: 1, g: 1, b: 1, a: 1}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}
     - _HighSpecColor: {r: 1, g: 1, b: 1, a: 1}
+    - _HueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
     - _IllumColor: {r: 0, g: 0, b: 0, a: 1}
     - _LowSpecColor: {r: 0.07352942, g: 0.07352942, b: 0.07352942, a: 1}
     - _Pixel_Color0: {r: 0.9253731, g: 0.03452887, b: 0.03452887, a: 1}
