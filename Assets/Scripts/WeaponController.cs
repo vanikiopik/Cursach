@@ -1,13 +1,12 @@
 using System;
 using System.Collections;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public class WeaponController : MonoBehaviour
 {
-    public Camera playerCamera; 
-    public GameObject bulletPrefab; 
-    public Transform bulletSpawn; 
+    public Camera playerCamera;
+    public GameObject bulletPrefab;
+    public Transform bulletSpawn;
     private Animator animator;
 
 
@@ -27,15 +26,20 @@ public class WeaponController : MonoBehaviour
     [SerializeField] private int _bulletsInBag = 90;
     private int _maxBullets;
 
+    [SerializeField] private int poolCount = 3;
+    [SerializeField] private bool autoExpand = false;
+    [SerializeField] private Bullet bullerPrefab;
+
+    private PoolMono<Bullet> pool;
+
     public event Action<int, int> BulletChange;
 
-    private void Awake()
-    {
-        
-    }
 
     private void Start()
     {
+        this.pool = new PoolMono<Bullet>(bullerPrefab, poolCount);
+        this.pool.autoExpand = autoExpand;
+
         animator = gameObject.GetComponent<Animator>();
         _maxBullets = _availableBullets;
     }
@@ -93,10 +97,11 @@ public class WeaponController : MonoBehaviour
             if (zombie != null) zombie.TakeDamage(_damage);
         }
 
-        GameObject bullet = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+        var bullet = this.pool.GetFreeElement();
+        bullet.transform.position = bulletSpawn.position;
+        bullet.transform.rotation = bulletSpawn.rotation;
         bullet.GetComponent<Rigidbody>().velocity = ray.direction * bulletSpeed;
     }
-
 
 
     IEnumerator ShootCoroutine()
