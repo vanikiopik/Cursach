@@ -28,16 +28,17 @@ public class WeaponController : MonoBehaviour
 
     [SerializeField] private int poolCount = 3;
     [SerializeField] private bool autoExpand = false;
-    [SerializeField] private Bullet bullerPrefab;
+    [SerializeField] private Bullet bullerPrefabScript;
 
     private PoolMono<Bullet> pool;
 
     public event Action<int, int> BulletChange;
+    public event Action OnShootAction;
 
 
     private void Start()
     {
-        this.pool = new PoolMono<Bullet>(bullerPrefab, poolCount);
+        this.pool = new PoolMono<Bullet>(bullerPrefabScript, poolCount);
         this.pool.autoExpand = autoExpand;
 
         animator = gameObject.GetComponent<Animator>();
@@ -68,10 +69,12 @@ public class WeaponController : MonoBehaviour
     {
         if (canShoot)
         {
+            
             m_ParticleSystem.Play();
             m_AudioSource.Play();
             BulletShoot();
             animator.SetTrigger("Shot");
+            OnShootAction?.Invoke();
             StartCoroutine(ShootCoroutine());
         }
     }

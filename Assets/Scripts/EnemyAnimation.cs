@@ -3,9 +3,7 @@ using UnityEngine;
 
 public class EnemyAnimation : MonoBehaviour
 {
-    public Animator animator;
-    public float animationTime = 2.0f;
-    private bool _canAnimate = true;
+    private Animator animator;
     [SerializeField] private Player _player;
     private float damage = 20;
 
@@ -16,26 +14,19 @@ public class EnemyAnimation : MonoBehaviour
         
     public void SetIdleAnimation()
     {
-        animator.SetTrigger("Idle");
+        animator.SetBool("Walk", false);
+        animator.SetBool("Idle", true);
     }
 
     public void SetWalkAnimation()
     {
-        if (_canAnimate)
-        {
-            animator.SetTrigger("Walk");
-            StartCoroutine(animationCooldown());
-        }
+        animator.SetBool("Idle", false);
+        animator.SetBool("Walk", true);
     }
 
     public void SetAttackAnimation()
     {
-        if (_canAnimate)
-        {
-            animator.SetTrigger("Attack");
-            
-            StartCoroutine(animationCooldown());
-        }
+        animator.SetTrigger("Attack");
     }
 
     public void AttackAnimationEvent()
@@ -45,13 +36,5 @@ public class EnemyAnimation : MonoBehaviour
 
     public void SetDieAnimation()
     {
-        animator.SetTrigger("Idle");
-    }
-
-    private IEnumerator animationCooldown()
-    {
-        _canAnimate = false;
-        yield return new WaitForSeconds(animationTime);
-        _canAnimate = true;
     }
 }

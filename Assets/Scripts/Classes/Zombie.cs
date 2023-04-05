@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,7 +20,13 @@ public class Zombie : Person
 
     private void Start()
     {
+ 
         _enemyAnimation = GetComponent<EnemyAnimation>();
+    }
+
+    private void Update()
+    {
+        healthBar.transform.forward = -Camera.main.transform.forward;
     }
 
     public void TakeDamage(float damage)
@@ -35,22 +42,12 @@ public class Zombie : Person
 
     public void Attack(Collision collision)
     {
-        /*collision.gameObject.GetComponent<Player>().TakeDamage(_attackDamage);
-        StartCoroutine(attackCooldown());*/
     }
 
     void UpdateHealthBar(float currentHealth)
     {
         healthBar.value = currentHealth;
     }
-
-    /*private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player") & _canAttack)
-        {
-            Attack(collision);
-        }
-    }*/
 
     private IEnumerator attackCooldown()
     {
