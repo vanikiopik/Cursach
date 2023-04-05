@@ -27,7 +27,7 @@ public class TriggerZone : MonoBehaviour
             _enemyChasing.Attack();
 
         if (coliders.Length > 0)
-            _enemyChasing.WalkToTarget();
+            _enemyChasing.WalkToTarget(coliders[0].transform.position);
         else
             _enemyChasing.LostVision();
     }

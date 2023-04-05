@@ -33,7 +33,7 @@ public class WeaponController : MonoBehaviour
     private PoolMono<Bullet> pool;
 
     public event Action<int, int> BulletChange;
-    public event Action OnShootAction;
+    public event Action<Vector3> OnShootAction;
 
 
     private void Start()
@@ -69,12 +69,11 @@ public class WeaponController : MonoBehaviour
     {
         if (canShoot)
         {
-            
             m_ParticleSystem.Play();
             m_AudioSource.Play();
             BulletShoot();
             animator.SetTrigger("Shot");
-            OnShootAction?.Invoke();
+            OnShootAction?.Invoke(transform.position);
             StartCoroutine(ShootCoroutine());
         }
     }

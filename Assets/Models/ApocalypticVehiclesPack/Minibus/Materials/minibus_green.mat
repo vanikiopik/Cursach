@@ -46,12 +46,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _GlossHigh: 0.7169596
-    - _GlossLow: 0.1666343
+    - _GlossHigh: 0.502
+    - _GlossLow: 0.214
     - _HighSpecMultiplayer: 1.91453
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _CubeColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    - _CubeColor: {r: 0, g: 0, b: 0, a: 1}
     - _DiffColor: {r: 1, g: 1, b: 1, a: 1}
     - _HighSpecColor: {r: 1, g: 1, b: 1, a: 1}
     - _IllumColor: {r: 0, g: 0, b: 0, a: 1}

@@ -8,10 +8,8 @@ using UnityEngine.AI;
 
 public class EnemyChasing : MonoBehaviour
 {
-    public Transform target;
     [SerializeField] private float _visibleDistance = 5f;
     [SerializeField] private float _attackDistance = 3f;
-    [SerializeField] private float _chaseTime = 2f;
 
     private NavMeshAgent navMeshAgent;
     private EnemyAnimation _enemyAnimation;
@@ -51,10 +49,10 @@ public class EnemyChasing : MonoBehaviour
         }
     }
 
-    public void WalkToTarget()
+    public void WalkToTarget(Vector3 position)
     {
         isChasingForSound = false;
-        navMeshAgent.SetDestination(target.position);
+        navMeshAgent.SetDestination(position);
     }
 
     public void Attack()
@@ -70,17 +68,10 @@ public class EnemyChasing : MonoBehaviour
         }
     }
 
-    private void GetEnemyShootSound()
+    private void GetEnemyShootSound(Vector3 position)
     {
         isChasingForSound=true;
         _enemyAnimation.SetWalkAnimation();
-        navMeshAgent.SetDestination(target.position);
-       //StartCoroutine(ChaseTimer());   
+        navMeshAgent.SetDestination(position); 
     }
-
-/*    private IEnumerator ChaseTimer()
-    {
-        yield return new WaitForSeconds(_chaseTime);
-        LostVision();
-    }*/
 }

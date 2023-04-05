@@ -20,7 +20,6 @@ public class Zombie : Person
 
     private void Start()
     {
- 
         _enemyAnimation = GetComponent<EnemyAnimation>();
     }
 
@@ -40,9 +39,6 @@ public class Zombie : Person
         else HealthChanged?.Invoke(_health);
     }
 
-    public void Attack(Collision collision)
-    {
-    }
 
     void UpdateHealthBar(float currentHealth)
     {
