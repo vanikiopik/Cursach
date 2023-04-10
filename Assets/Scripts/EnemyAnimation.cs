@@ -36,5 +36,6 @@ public class EnemyAnimation : MonoBehaviour
 
     public void SetDieAnimation()
     {
+        animator.SetTrigger("Die");
     }
 }

@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 public class Zombie : Person
@@ -14,13 +16,25 @@ public class Zombie : Person
     private EnemyAnimation _enemyAnimation;
     private bool _canAttack = true;
     [SerializeField] private float _attackCooldown = 2.0f;
+    [SerializeField] private float _deathCooldown = 3.0f;
 
     public event Action<float> HealthChanged;
 
+    TriggerZone _triggerZone;
+    EnemyChasing _enemyChasing;
+    Collider _colider;
+
+    NavMeshAgent _navMeshAgent;
 
     private void Start()
     {
+        _triggerZone = GetComponentInChildren<TriggerZone>();
+        _enemyChasing = GetComponentInChildren<EnemyChasing>();
+        _colider = GetComponent<Collider>();
+        _navMeshAgent = GetComponentInChildren<NavMeshAgent>();
+
         _enemyAnimation = GetComponent<EnemyAnimation>();
+        
     }
 
     private void Update()
@@ -34,7 +48,16 @@ public class Zombie : Person
         UpdateHealthBar(_health);
         if (_health <= 0.1)
         {
-            Die();
+            _enemyAnimation.SetDieAnimation();
+            
+            _triggerZone.enabled = false;
+            _enemyAnimation.enabled = false;
+            _navMeshAgent.enabled = false;
+            _enemyChasing.DeleteAgentPath();
+            _enemyChasing.enabled = false;
+            _colider.enabled = false;
+
+            StartCoroutine(cooldownAfterDeath());
         }
         else HealthChanged?.Invoke(_health);
     }
@@ -50,5 +73,11 @@ public class Zombie : Person
         _canAttack = false;
         yield return new WaitForSeconds(_attackCooldown);
         _canAttack = true;
+    }
+
+    private IEnumerator cooldownAfterDeath()
+    {
+        yield return new WaitForSeconds(_deathCooldown);
+        Die();
     }
 }

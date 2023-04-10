@@ -74,4 +74,9 @@ public class EnemyChasing : MonoBehaviour
         _enemyAnimation.SetWalkAnimation();
         navMeshAgent.SetDestination(position); 
     }
+
+    public void DeleteAgentPath()
+    {
+        navMeshAgent.ResetPath();
+    }
 }

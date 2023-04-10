@@ -9,7 +9,6 @@ public class WeaponController : MonoBehaviour
     public Transform bulletSpawn;
     private Animator animator;
 
-
     public ParticleSystem m_ParticleSystem;
     public AudioSource m_AudioSource;
     public AudioSource m_AudioSourceReload;

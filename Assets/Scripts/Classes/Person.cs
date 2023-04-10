@@ -10,4 +10,6 @@ public abstract class Person : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+
 }
