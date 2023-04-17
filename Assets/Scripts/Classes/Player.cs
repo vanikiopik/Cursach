@@ -6,7 +6,7 @@ using UnityEngine;
 public class Player : Person
 {
 
-    public event Action<float> HealthChanged;
+    public static event Action<float> HealthChanged;
 
     public void TakeDamage(float damage)
     {

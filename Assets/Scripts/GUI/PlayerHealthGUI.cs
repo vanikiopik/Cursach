@@ -7,17 +7,15 @@ public class PlayerHealthGUI : MonoBehaviour
 {
     private Slider _hpBar;
 
-    [SerializeField] private Player _health;
-
     private void Awake()
     {
-        _health.HealthChanged += OnHpChanged;
+        Player.HealthChanged += OnHpChanged;
         _hpBar = GetComponent<Slider>();
     }
 
     private void OnDestroy()
     {
-        _health.HealthChanged -= OnHpChanged;
+        Player.HealthChanged -= OnHpChanged;
     }
 
     private void OnHpChanged(float healthValue)
