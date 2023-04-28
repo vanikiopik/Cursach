@@ -65,14 +65,14 @@ Material:
     - _ADD_gloss: 0.9153439
     - _GlossHigh: 0.7169596
     - _GlossLow: 0.1666343
-    - _HighSpecMultiplayer: 1.91453
+    - _HighSpecMultiplayer: 1.36
     - _Shininess: 0.7
     - _range: 0.20895523
     m_Colors:
     - _ADD_specular: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _CubeColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    - _DiffColor: {r: 1, g: 1, b: 1, a: 1}
+    - _DiffColor: {r: 0, g: 0, b: 0, a: 1}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}
     - _HighSpecColor: {r: 1, g: 1, b: 1, a: 1}
     - _IllumColor: {r: 0, g: 0, b: 0, a: 1}

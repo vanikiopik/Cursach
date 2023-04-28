@@ -74,7 +74,7 @@ Material:
     - _ADD_specular: {r: 0, g: 0, b: 0, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _CubeColor: {r: 0.28676468, g: 0.16446798, b: 0.16446798, a: 1}
-    - _DiffColor: {r: 1, g: 1, b: 1, a: 1}
+    - _DiffColor: {r: 0, g: 0, b: 0, a: 1}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}
     - _HighSpecColor: {r: 0.2647059, g: 0.19463669, b: 0.19463669, a: 1}
     - _IllumColor: {r: 0, g: 0, b: 0, a: 1}
