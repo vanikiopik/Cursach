@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameComplete : MonoBehaviour
@@ -17,6 +18,12 @@ public class GameComplete : MonoBehaviour
     {
         if (other.CompareTag("Player"))
             _text.enabled = true;
+        StartCoroutine(BackToMainMenu());
+    }
 
+    IEnumerator BackToMainMenu()
+    {
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("MainMenu");
     }
 }
