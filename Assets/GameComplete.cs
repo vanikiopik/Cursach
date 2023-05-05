@@ -13,7 +13,6 @@ public class GameComplete : MonoBehaviour
         _text.enabled = false;
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))

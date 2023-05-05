@@ -9,7 +9,7 @@ public class TriggerZone : MonoBehaviour
 
     private EnemyChasing _enemyChasing;
 
-    private void Awake()
+    private void Start()
     {
         _enemyChasing = GetComponentInParent<EnemyChasing>();
     }
