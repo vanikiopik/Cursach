@@ -8,7 +8,6 @@ public class GameComplete : MonoBehaviour
 {
     [SerializeField] Text _text;
 
-
     private void Awake()
     {
         _text.enabled = false;

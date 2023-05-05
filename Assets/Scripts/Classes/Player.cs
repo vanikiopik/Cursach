@@ -1,7 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : Person
 {
@@ -19,4 +17,10 @@ public class Player : Person
         else
             HealthChanged?.Invoke(_health); 
     }
+
+    new void Die()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
 }
